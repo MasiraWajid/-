@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#101827">
+  <title>Red Sky — Air Combat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Red Sky home"><span class="brand-mark">✦</span><span>RED<span class="sky">SKY</span></span></a>
+      <nav><a href="#briefing">MISSION</a><a href="#controls">CONTROLS</a><button id="leaderboardTop" class="nav-button">LEADERBOARD</button></nav>
+    </header>
+
+    <section class="hero" id="briefing">
+      <div class="hero-copy">
+        <p class="eyebrow">ARCADE AIR COMBAT • BROWSER EDITION</p>
+        <h1>TAKE TO THE<br><span>RED SKY.</span></h1>
+        <p class="hero-desc">Enter the cockpit. Defend the skies. Take down enemy aircraft and set a new high score.</p>
+        <div class="hero-actions">
+          <button class="primary" id="playNow">▶ PLAY GAME</button>
+          <button class="secondary" id="howToPlay">HOW TO PLAY</button>
+        </div>
+        <div class="hero-stats"><div><b>01</b><span>FIRST-PERSON VIEW</span></div><div><b>∞</b><span>ENDLESS WAVES</span></div><div><b>100%</b><span>BROWSER PLAY</span></div></div>
+      </div>
+      <div class="hero-art" aria-label="Illustrated fighter aircraft scene">
+        <div class="sun"></div><div class="cloud cloud-a"></div><div class="cloud cloud-b"></div>
+        <div class="hero-plane">✈</div><div class="hero-trail"></div><div class="hero-label">MISSION 01 <small>THE OPEN OCEAN</small></div>
+      </div>
+    </section>
+
+    <section class="game-section" id="game">
+      <div class="section-heading"><div><p class="eyebrow">LIVE MISSION</p><h2>COCKPIT VIEW</h2></div><span class="status"><i></i> SIMULATION READY</span></div>
+      <div class="game-frame">
+        <div class="game-hud">
+          <div class="hud-left"><span>SCORE <b id="score">0</b></span><span>STAGE <b id="stage">1</b></span></div>
+          <div class="hud-right"><button id="leaderboard">LEADERBOARD</button><button id="pause">Ⅱ PAUSE</button></div>
+          <div class="reticle">+</div>
+          <div class="alert" id="alert">MISSION READY</div>
+          <canvas id="gameCanvas" aria-label="Air combat game canvas"></canvas>
+          <div class="cockpit-glass"></div>
+          <div class="cockpit-nose"><div class="nose-ridge"></div><div class="nose-light"></div></div>
+          <div class="crosshair"><span></span></div>
+          <div class="joystick" id="joystick" aria-label="Move aircraft"><div class="joy-arrow up">▲</div><div class="joy-arrow down">▼</div><div class="joy-arrow left">◀</div><div class="joy-arrow right">▶</div><div class="joy-knob" id="joyKnob"></div></div>
+          <button class="fire" id="fire">FIRE</button>
+          <div class="ammo">AMMO <b id="ammo">40</b></div>
+          <div class="health"><span>HULL</span><div><i id="healthBar"></i></div></div>
+          <div class="overlay" id="overlay">
+            <div class="dialog">
+              <p class="eyebrow" id="dialogEyebrow">PILOT BRIEFING</p><h2 id="dialogTitle">READY FOR TAKEOFF?</h2>
+              <p id="dialogText">Create a callsign and launch your first mission.</p>
+              <input id="pilotName" maxlength="18" placeholder="Pilot callsign (not your real name)" autocomplete="nickname">
+              <div class="dialog-actions"><button class="primary" id="dialogPrimary">START MISSION</button><button class="secondary hidden" id="dialogSecondary">BACK</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="game-note">Prototype note: this is an original browser-playable arcade implementation inspired by your reference screenshots, not the original game's assets or source code.</p>
+    </section>
+
+    <section class="feature-grid" id="controls">
+      <article><span class="feature-icon">⌖</span><h3>CONTROL THE SKIES</h3><p>Move around the cockpit view and aim at incoming enemy aircraft.</p></article>
+      <article><span class="feature-icon">✹</span><h3>KEEP YOUR HULL</h3><p>Collect health and ammo supplies while avoiding enemy fire and collisions.</p></article>
+      <article><span class="feature-icon">◈</span><h3>CLIMB THE RANKS</h3><p>Your local best score is saved in this browser. Share the game link with friends.</p></article>
+    </section>
+    <footer><span>RED SKY • AIR COMBAT</span><span>UNOFFICIAL EDUCATIONAL GAME PROTOTYPE</span></footer>
+  </main>
+  <div class="modal-backdrop hidden" id="modalBackdrop"><div class="modal"><button class="modal-close" id="modalClose">×</button><p class="eyebrow">FLIGHT RECORDS</p><h2 id="modalTitle">LEADERBOARD</h2><div id="leaderboardRows"></div><button class="primary" id="modalOk">CONTINUE</button></div></div>
+  <script src="game.js"></script>
+</body>
+</html>
